@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1337457872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337457873}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1337457873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337457872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &764712031694803459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +205,42 @@ PrefabInstance:
     - target: {fileID: 4344523628782961127, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: initialGold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: prepareTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: finalTowerHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemySpawningLocation
+      value: 
+      objectReference: {fileID: 1337457873}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 4907014411578751306, guid: e9f5530821392d44da6d9477a9e499e1, type: 3}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 4907014411578751306, guid: e9f5530821392d44da6d9477a9e499e1, type: 3}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemySpawnInterval.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemySpawnInterval.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -301,3 +368,4 @@ SceneRoots:
   - {fileID: 764712031694803459}
   - {fileID: 3434607909349145493}
   - {fileID: 1201575721732486262}
+  - {fileID: 1337457873}
