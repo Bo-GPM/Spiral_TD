@@ -19,6 +19,11 @@ public class Tower : MonoBehaviour
 
     Transform target;
     float timeUntilFire;
+    private void Start()
+    {
+        //Add tower to list
+        GameManager.instance.activeTowers.Add(this);
+    }
     private void Update()
     {
         if (target == null)
@@ -31,7 +36,7 @@ public class Tower : MonoBehaviour
         {
             target = null;
         }
-        else 
+        else
         {
             timeUntilFire += Time.deltaTime;
             if (timeUntilFire >= 1f / shootSpeed)
@@ -44,8 +49,8 @@ public class Tower : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletobj=Instantiate(bulletPrefab,firePoint.position,Quaternion.identity);
-        Bullet bulletScript=bulletobj.GetComponent<Bullet>();
+        GameObject bulletobj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Bullet bulletScript = bulletobj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
         Debug.Log("Shoot");
     }
