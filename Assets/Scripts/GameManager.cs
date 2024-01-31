@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] static public GameManager instance;
     [HideInInspector] public List<Enemy> activeEnemies = new List<Enemy>();
-    
+    [HideInInspector] public List<Tower> activeTowers = new List<Tower>();
+
     private int gameState = 0;
     private const int PREPARE_STAGE = 0;
     private const int BATTLE = 1;
@@ -34,9 +36,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Tower Related")] 
     [SerializeField] private int finalTowerHP;
-
     [SerializeField] private GameObject gameOverPanel;
-    
+
+    int currentSceneIndex = 0;
+    [Header("UI")]
+    [SerializeField] GameObject titleScreenPanel;
+    [SerializeField] GameObject buildingPanel;
     // Might be useful for reload the scene
     private void Awake()
     {
@@ -191,5 +196,19 @@ public class GameManager : MonoBehaviour
     public void TowerDamageTaken(int damage)
     {
         finalTowerHP -= damage;
+    }
+    public void TransitionToNextLevel()
+    {
+        //TODO:
+        currentSceneIndex++;
+        if (currentSceneIndex > SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.LogWarning($"Trying to load{currentSceneIndex}.Aborting!Loading scene 0 instead");
+            currentSceneIndex = 0;
+        }
+        titleScreenPanel.SetActive(currentSceneIndex == 0);
+        buildingPanel.SetActive(currentSceneIndex != 0);
+        SceneManager.LoadScene(currentSceneIndex);
+
     }
 }
