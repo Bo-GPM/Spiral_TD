@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector] public GameManager instance;
-    [HideInInspector] public List<Enemy> activeEnemies= new List<Enemy>();
+    [HideInInspector] static public GameManager instance;
+    [HideInInspector] public List<Enemy> activeEnemies = new List<Enemy>();
     
     private int gameState = 0;
     private const int PREPARE_STAGE = 0;
     private const int BATTLE = 1;
+    private const int GAME_OVER = 2;
 
     [Header("General Varibles")] 
     [SerializeField] private int initialGold;
@@ -33,10 +34,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Tower Related")] 
     [SerializeField] private int finalTowerHP;
+
+    [SerializeField] private GameObject gameOverPanel;
     
     // Might be useful for reload the scene
     private void Awake()
     {
+        instance = this;
         // Singleton
         // if (instance != null)
         // {
@@ -58,6 +62,32 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameStateChanging();
+        
+    }
+
+    private bool CheckIntArrayIsAllZero(int[] tempArray)
+    {
+        for (int i = 0; i < tempArray.Length; i++)
+        {
+            if (tempArray[i] != 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void GameStateChanging()
+    {
+        // Check HP first to see if game is over.
+        if (finalTowerHP < 0)
+        {
+            gameState = GAME_OVER;
+        }
+        
+        // Check gameState and transfer to corresponding state
         if (gameState == PREPARE_STAGE)
         {
             // Update remaining PrepareTime and prepare for stage Shifting
@@ -87,20 +117,11 @@ public class GameManager : MonoBehaviour
                     InitializeSpawnContent();
                 }
             }
-        }
-    }
-
-    private bool CheckIntArrayIsAllZero(int[] tempArray)
-    {
-        for (int i = 0; i < tempArray.Length; i++)
+        } 
+        else if (gameState == GAME_OVER)
         {
-            if (tempArray[i] != 0)
-            {
-                return false;
-            }
+            gameOverPanel.SetActive(true);
         }
-
-        return true;
     }
     
     private void InitializeSpawnContent()
@@ -163,8 +184,12 @@ public class GameManager : MonoBehaviour
             }
             
         }
-
+        
         return false;
     }
-    
+
+    public void TowerDamageTaken(int damage)
+    {
+        finalTowerHP -= damage;
+    }
 }
