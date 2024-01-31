@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3249239985211749417}
-  moveSpeed: 0.01
+  moveSpeed: 0.02
   healthPool: 1
   damageNumber: 1
 --- !u!50 &3249239985211749417

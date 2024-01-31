@@ -202,9 +202,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205077413507583230, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4344523628782961127, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344523628782961127, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749978027625331067, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: initialGold
