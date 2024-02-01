@@ -11,7 +11,13 @@ public class Bullet : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField] int bulletDamage = 1;
+    [SerializeField] float destroyTimer = 3f;
 
+
+    private void Start()
+    {
+        Destroy(gameObject,destroyTimer);
+    }
     public void SetTarget(Transform givenEnemy)
     {
         //set target inside Tower Script
@@ -30,8 +36,15 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
-        //print(collision.gameObject.name);
         //TODO:Damage
         Destroy(gameObject);
+
+    }
+    public void BulletUpgrade() 
+    {
+        //TODO:MoneyCondition
+        bulletDamage += 1;
+        bulletSpeed += 1;
+
     }
 }

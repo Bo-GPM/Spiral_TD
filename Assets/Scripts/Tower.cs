@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
 
     Transform target;
     float timeUntilFire;
+    public bool canShoot=false;
     private void Start()
     {
         //Add tower to list
@@ -39,7 +40,7 @@ public class Tower : MonoBehaviour
         else
         {
             timeUntilFire += Time.deltaTime;
-            if (timeUntilFire >= 1f / shootSpeed)
+            if (timeUntilFire >= 1f / shootSpeed&&canShoot)
             {
                 Shoot();
                 timeUntilFire = 0f;
@@ -87,6 +88,25 @@ public class Tower : MonoBehaviour
             Gizmos.DrawLine(transform.position, hit.point);
             Gizmos.DrawWireSphere(hit.point, 0.2f);
         }
-
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower"))
+        {
+            BuildingManager.buildingManager.canPlace = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower"))
+        {
+            BuildingManager.buildingManager.canPlace = true;
+        }
+    }
+    public void TowerUpgrade()
+    {
+        //TODO:Money condition
+        shootSpeed += 1f;
+        range += 0.2f;
     }
 }
