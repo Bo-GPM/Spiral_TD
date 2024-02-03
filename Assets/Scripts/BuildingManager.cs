@@ -46,7 +46,8 @@ public class BuildingManager : MonoBehaviour
     }
     public void PlaceTower()
     {
-        //TODO:COIN
+        // Gold Costing here
+        if (pendingTower != null) GameManager.instance.CostGold(pendingTower.GetComponent<Tower>().GetTowerWorth());
         //place tower & toggle shooting function
         if(pendingTower!=null) pendingTower.GetComponent<Tower>().canShoot = true;
         pendingTower = null;
@@ -84,7 +85,16 @@ public class BuildingManager : MonoBehaviour
     /// <param name="index"></param>
     public void SelectObject(int index)
     {
-        pendingTower = Instantiate(towersPrefab[index], pos, Quaternion.identity);
-        childTransform = pendingTower.transform.Find("Root");
+        // Check if gold is enough
+        if (towersPrefab[index].GetComponent<Tower>().GetTowerWorth() <= GameManager.instance.getGold())
+        {
+            pendingTower = Instantiate(towersPrefab[index], pos, Quaternion.identity);
+            childTransform = pendingTower.transform.Find("Root");
+            
+        }
+        else
+        {
+            GameManager.instance.InsufficientGoldWarning();
+        }
     }
 }

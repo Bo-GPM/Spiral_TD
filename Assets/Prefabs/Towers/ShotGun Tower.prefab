@@ -21,6 +21,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4564467996565218515, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: towerWorth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564467996565218515, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 3552602256849283403, guid: 83a342da4fff19e4aa7590f754898fd2, type: 3}

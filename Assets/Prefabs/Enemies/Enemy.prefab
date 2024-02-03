@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e227ba3d224abe4408f27a1b394a755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   moveSpeed: 2
   healthPool: 1
   damageNumber: 1
+  goldWorth: 10
   isFlying: 0
   toleranceDistance: 0.3
 --- !u!58 &1693057688951941412

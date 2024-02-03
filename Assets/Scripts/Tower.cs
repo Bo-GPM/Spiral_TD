@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour
     [Header("Attribute")]
     [SerializeField] float range = 5f;
     [SerializeField] float shootSpeed = 1f;
+    [SerializeField] private int towerWorth;
 
     [Header("Tower Type")]
     [SerializeField] bool isIceTower;
@@ -165,5 +166,10 @@ public class Tower : MonoBehaviour
         //TODO:Money condition
         shootSpeed += 1f;
         range += 0.2f;
+    }
+
+    public int GetTowerWorth()
+    {
+        return towerWorth;
     }
 }

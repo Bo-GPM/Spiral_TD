@@ -141,6 +141,10 @@ PrefabInstance:
       value: Enemy_Boss
       objectReference: {fileID: 0}
     - target: {fileID: 6717451505600105480, guid: af478c5550b4bd7458df5f89830036bc, type: 3}
+      propertyPath: goldWorth
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717451505600105480, guid: af478c5550b4bd7458df5f89830036bc, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}

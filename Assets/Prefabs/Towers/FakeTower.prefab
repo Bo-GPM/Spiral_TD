@@ -120,9 +120,10 @@ MonoBehaviour:
   firePoint: {fileID: 6219281653942089413}
   range: 5
   shootSpeed: 3
-  slowDuration: 1
+  towerWorth: 50
   isIceTower: 0
   isNormalTower: 1
+  isShotGunTower: 0
   canShoot: 0
 --- !u!61 &714055112188462276
 BoxCollider2D:

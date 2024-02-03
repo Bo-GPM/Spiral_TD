@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private int healthPool;
     [SerializeField] private int damageNumber;
+    [SerializeField] private int goldWorth;
     private int currentHealthPool;
     [SerializeField] private bool isFlying = false;
     private int currentNavIndex;
@@ -117,10 +118,11 @@ public class Enemy : MonoBehaviour
 
     public void CheckAlive()
     {
-        // Check destination first, then check HP
+        // Check destination first, then check HP, if HP < 0, die and give gold
         if (currentHealthPool <= 0)
         {
             GameManager.instance.activeEnemies.Remove(this);
+            GameManager.instance.AddGold(goldWorth);
             Destroy(gameObject);
         }
     }

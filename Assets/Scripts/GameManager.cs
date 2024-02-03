@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] enemyList;
     [SerializeField] private float[] enemySpawnInterval;
     private float[] enemySpawnIntervalRemain;
+    private int totalEnemiesToSpawn;
     private int[] enemiesAwaitsSpawn;
     [SerializeField] private float prepareTime;
     private float remainingPrepareTime;
@@ -48,12 +49,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text healthPoolText;
     [SerializeField] private GameObject countDownText;
     private Text countDownTextComponent;
+    [SerializeField] private Text waveText;
+    [SerializeField] private Slider waveProgressSlider;
 
     // Might be useful for reload the scene
     
     
     private void Awake()
     {
+        gold = initialGold;
+        
         instance = this;
         // Singleton
         // if (instance != null)
@@ -170,6 +175,9 @@ public class GameManager : MonoBehaviour
             enemiesAwaitsSpawn[2] = enemy3ToAdd;
         }
         
+        // Initialize totalEnemiesToSpawn
+        totalEnemiesToSpawn = CountEnemiesInList();
+        
         // Update enemySpawnInterval here
         float intervalDecreaseIncrement = 0.1f;
         // Then update enemySpawnIntervalRemain
@@ -231,22 +239,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int CountEnemiesInList()
+    {
+        int enemiesCount = 0;
+        // Count how many enemies in enemiesAwaitsSpawn list
+        for (int i = 0; i < enemiesAwaitsSpawn.Length; i++)
+        {
+            enemiesCount += enemiesAwaitsSpawn[i];
+        }
+
+        return enemiesCount;
+    }
     private void CountDownTimer()
     {
         if (countDownText.active)
         {
             int tempSecondText =  (int) remainingPrepareTime;
             countDownTextComponent.text = tempSecondText.ToString();
+            if (tempSecondText <= 3)
+            {
+                countDownTextComponent.fontSize = 300;
+            }
+            else
+            {
+                countDownTextComponent.fontSize = 60;
+            }
         }
         else
         {
             countDownText.SetActive(true);
         }
     }
+    
     private void UpdateUIText()
     {
         goldText.text = new string($"Gold: {gold}");
         healthPoolText.text = new string($"HP: {finalTowerHP}");
+        waveText.text = new string($"Wave: {currentWaves}");
+        float tempValueBeforeMap = Mathf.InverseLerp(0, totalEnemiesToSpawn, CountEnemiesInList());
+        waveProgressSlider.value = Mathf.Lerp(1, 0, tempValueBeforeMap);
     }
     
     private void SpawnEnemy()
@@ -278,6 +309,33 @@ public class GameManager : MonoBehaviour
         }
         
         return false;
+    }
+
+    public void AddGold(int goldToAdd)
+    {
+        gold += goldToAdd;
+    }
+
+    public void CostGold(int goldToCost)
+    {
+        gold -= goldToCost;
+    }
+
+    public int getGold()
+    {
+        return gold;
+    }
+
+    public void InsufficientGoldWarning()
+    {
+        StartCoroutine(startWarningCoroutine());
+    }
+    
+    public IEnumerator startWarningCoroutine()
+    {
+        goldText.color = Color.red;
+        yield return new WaitForSeconds(2);
+        goldText.color = Color.black;
     }
 
     public void TowerDamageTaken(int damage)
