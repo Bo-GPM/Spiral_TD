@@ -17,9 +17,14 @@ public class Tower : MonoBehaviour
     [SerializeField] float range = 5f;
     [SerializeField] float shootSpeed = 1f;
 
+    [Header("Tower Type")]
+    [SerializeField] bool isIceTower;
+    [SerializeField] bool isNormalTower;
+    [SerializeField] bool isShotGunTower;
+
     Transform target;
     float timeUntilFire;
-    public bool canShoot=false;
+    public bool canShoot = false;
     private void Start()
     {
         //Add tower to list
@@ -27,33 +32,63 @@ public class Tower : MonoBehaviour
     }
     private void Update()
     {
-        if (target == null)
+        //Switch different tower mode
+        if (isNormalTower|| isShotGunTower)
         {
-            FindTarget();
-            return;
-        }
-        RotateTowardsTarget();
-        if (!CheckTargetIsInRange())
-        {
-            target = null;
-        }
-        else
-        {
-            timeUntilFire += Time.deltaTime;
-            if (timeUntilFire >= 1f / shootSpeed&&canShoot)
+            if (target == null)
             {
-                Shoot();
-                timeUntilFire = 0f;
+                FindTarget();
+                return;
             }
+            RotateTowardsTarget();
+            if (!CheckTargetIsInRange())
+            {
+                target = null;
+            }
+            else
+            {
+                timeUntilFire += Time.deltaTime;
+                if (timeUntilFire >= 1f / shootSpeed && canShoot)
+                {
+                    if (isNormalTower)
+                    {
+                        NormalShoot();
+                        timeUntilFire = 0f;
+                    }
+                    if (isShotGunTower)
+                    {
+                        ShotGunShoot();
+                        timeUntilFire = 0f;
+                    }
+                }
+            }
+        }
+        else if (isIceTower && canShoot)
+        {
+            FreezeAllTargetsInRange();
         }
     }
 
-    private void Shoot()
+    private void NormalShoot()
     {
         GameObject bulletobj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bulletobj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
+    }
+    private void ShotGunShoot()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, enemyMask);
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                target = hits[i].transform;
+                GameObject bulletobj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                Bullet bulletScript = bulletobj.GetComponent<Bullet>();
+                bulletScript.SetTarget(target);
+            }
+        }
     }
 
     private void FindTarget()
@@ -62,7 +97,7 @@ public class Tower : MonoBehaviour
         if (hits.Length > 0)
         {
             target = hits[0].transform;
-            print(target.name);
+            //print(target.name);
         }
 
     }
@@ -74,6 +109,30 @@ public class Tower : MonoBehaviour
     private bool CheckTargetIsInRange()
     {
         return Vector2.Distance(transform.position, target.position) <= range;
+    }
+    private void FreezeAllTargetsInRange()
+    {
+        Vector2 towerPosition = transform.position;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, enemyMask);
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                Vector2 enemyPosition = enemy.transform.position;
+                float distance = Vector2.Distance(enemyPosition, towerPosition);
+                //StartCoroutine(StopSlowEnemy(enemy));
+                if (distance <= range)
+                {
+                    enemy.ChangeSpeed(0.99f);
+                }
+                else
+                {
+                    enemy.ResetSpeed();
+                }
+            }
+        }
     }
     private void OnDrawGizmosSelected()
     {

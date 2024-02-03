@@ -592,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5306288542531865390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5852075419066026254
 RectTransform:
   m_ObjectHideFlags: 0
@@ -791,8 +791,14 @@ MonoBehaviour:
   - 2
   - 4
   prepareTime: 6
-  navPointsArray: []
-  finalTowerHP: 0
+  navPointsArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  finalTowerHP: 10
   gameOverPanel: {fileID: 8759165655902698925}
   titleScreenPanel: {fileID: 3684063959030796535}
   buildingPanel: {fileID: 4099753071776413838}
@@ -927,7 +933,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1547,7 +1553,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1832,6 +1838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towersPrefab:
   - {fileID: 2714874200799613105, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+  - {fileID: 9062040514889004200, guid: dcb9945245c84ce469cc03e718c784a9, type: 3}
+  - {fileID: 2564042767791028246, guid: c87c628c124e0914e9a6b1159188fb6a, type: 3}
   groundMask:
     serializedVersion: 2
     m_Bits: 512

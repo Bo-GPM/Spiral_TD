@@ -12,8 +12,10 @@ public class Bullet : MonoBehaviour
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField] int bulletDamage = 1;
     [SerializeField] float destroyTimer = 3f;
-
-
+    [Header("BulletType")]
+    [SerializeField] bool isNormalBullet;
+    [SerializeField] bool isShotGunBullet;
+    Vector2 direction = Vector2.zero;
     private void Start()
     {
         Destroy(gameObject,destroyTimer);
@@ -25,12 +27,20 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         //bullet can follow the target
         if (!target)
         {
             return;
         }
-        Vector2 direction = (target.position - transform.position).normalized;
+        if (isNormalBullet)
+        {
+            direction = (target.position - transform.position).normalized;
+        }
+        if (isShotGunBullet)
+        {
+            direction = target.position.normalized;
+        }
         rb.velocity = direction * bulletSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,6 +55,5 @@ public class Bullet : MonoBehaviour
         //TODO:MoneyCondition
         bulletDamage += 1;
         bulletSpeed += 1;
-
     }
 }

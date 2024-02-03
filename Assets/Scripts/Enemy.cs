@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         // Initialize Add data required
         InitializeEnemy();
+        originalSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -38,8 +39,12 @@ public class Enemy : MonoBehaviour
 
     public void ChangeSpeed(float tempSpeed)
     {
-        originalSpeed = moveSpeed;
-        moveSpeed *= tempSpeed;
+        //moveSpeed *= tempSpeed;
+        if (moveSpeed>= (originalSpeed*0.7))
+        {
+            moveSpeed *= tempSpeed;
+        }
+
     }
 
     public void ResetSpeed()

@@ -131,26 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3529944851821234708, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: canPlace
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3529944851821234708, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: towerMask.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 3529944851821234708, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 3529944851821234708, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: towerOverlapRadius
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684063959030796535, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4033597493606533562, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -191,42 +171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4099753071776413838, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4344523628782961127, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: finalTowerHP
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemyList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: enemySpawningLocation
       value: 
       objectReference: {fileID: 751416243}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemyList.Array.data[0]
-      value: 
-      objectReference: {fileID: 6063877501162291877, guid: bcbf4e7e60ebc5e48bd43643b0d1cc39, type: 3}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemyList.Array.data[1]
-      value: 
-      objectReference: {fileID: 7980844669620281339, guid: 032f827e98861ea4988ad1ecb2c84d62, type: 3}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemyList.Array.data[2]
-      value: 
-      objectReference: {fileID: 5094414010596702730, guid: a4cc5018650689840b7e8c261aa52bde, type: 3}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: navPointsArray.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: navPointsArray.Array.data[0]
       value: 
@@ -251,22 +203,6 @@ PrefabInstance:
       propertyPath: navPointsArray.Array.data[5]
       value: 
       objectReference: {fileID: 1554173495}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemySpawnInterval.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemySpawnInterval.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemySpawnInterval.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemySpawnInterval.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
