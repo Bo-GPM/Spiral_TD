@@ -90,7 +90,6 @@ public class Enemy : MonoBehaviour
     {
         // Set Current index's transform as the next navPoint transform
         nextNavPointTransform = GameManager.instance.navPointsArray[currentNavIndex].transform;
-
     }
     
     public void TakeDamage(int tempDamageNumber)

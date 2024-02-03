@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,12 +38,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Tower Related")] 
     [SerializeField] private int finalTowerHP;
-    [SerializeField] private GameObject gameOverPanel;
 
     int currentSceneIndex = 0;
     [Header("UI")]
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] GameObject titleScreenPanel;
     [SerializeField] GameObject buildingPanel;
+    [SerializeField] private Text goldText;
+    [SerializeField] private Text healthPoolText;
+    [SerializeField] private GameObject countDownText;
+    private Text countDownTextComponent;
+
     // Might be useful for reload the scene
     
     
@@ -89,42 +95,19 @@ public class GameManager : MonoBehaviour
 
     private void GameStateChanging()
     {
-        // Check HP first to see if game is over.
-        if (finalTowerHP < 0)
-        {
-            gameState = GAME_OVER;
-        }
         
         // Check gameState and transfer to corresponding state
         if (gameState == PREPARE_STAGE)
         {
-            // Update remaining PrepareTime and prepare for stage Shifting
-            remainingPrepareTime -= Time.deltaTime;
-            
-            // Change gameState to battle;
-            if (remainingPrepareTime < 0)
-            {
-                gameState = BATTLE;
-            }
+            PrepareUpdate();
         }
         else if (gameState == BATTLE)
         {
-            // Spawning enemies before awaits list is empty
-            if (!CheckIntArrayIsAllZero(enemiesAwaitsSpawn))
-            {
-                SpawnEnemy();
-            }
-            // If there's no more enemies to spawn
-            // it wait until there's no enemies and change the state
-            else 
-            {
-                if (activeEnemies.Count == 0)
-                {
-                    currentWaves++;
-                    gameState = PREPARE_STAGE;
-                    InitializeSpawnContent();
-                }
-            }
+            // TODO: Fix Temp Solution
+            countDownText.SetActive(false);
+            
+            
+            BattleUpdate();
         } 
         else if (gameState == GAME_OVER)
         {
@@ -198,7 +181,72 @@ public class GameManager : MonoBehaviour
         
         // Refresh remainingPrepareTime
         remainingPrepareTime = prepareTime;
+        // Set CountDownText as active
+        countDownText.SetActive(false);
+        
+        // CountDowntextComponent Init
+        countDownTextComponent = countDownText.GetComponent<Text>();
+    }
 
+    private void PrepareUpdate()
+    {
+        UpdateUIText();
+        CountDownTimer();
+        
+        // Update remaining PrepareTime and prepare for stage Shifting
+        remainingPrepareTime -= Time.deltaTime;
+            
+        // Change gameState to battle;
+        if (remainingPrepareTime < 0)
+        {
+            gameState = BATTLE;
+        }
+    }
+    private void BattleUpdate()
+    {
+        UpdateUIText();
+        
+        // Check HP first to see if game is over.
+        if (finalTowerHP < 0)
+        {
+            gameState = GAME_OVER;
+        }
+        
+        // Spawning enemies before awaits list is empty
+        if (!CheckIntArrayIsAllZero(enemiesAwaitsSpawn))
+        {
+            SpawnEnemy();
+        }
+        
+        // If there's no more enemies to spawn
+        // it wait until there's no enemies and change the state
+        else 
+        {
+            if (activeEnemies.Count == 0)
+            {
+                currentWaves++;
+                gameState = PREPARE_STAGE;
+                InitializeSpawnContent();
+            }
+        }
+    }
+
+    private void CountDownTimer()
+    {
+        if (countDownText.active)
+        {
+            int tempSecondText =  (int) remainingPrepareTime;
+            countDownTextComponent.text = tempSecondText.ToString();
+        }
+        else
+        {
+            countDownText.SetActive(true);
+        }
+    }
+    private void UpdateUIText()
+    {
+        goldText.text = new string($"Gold: {gold}");
+        healthPoolText.text = new string($"HP: {finalTowerHP}");
     }
     
     private void SpawnEnemy()
