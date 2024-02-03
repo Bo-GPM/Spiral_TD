@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3328648694304222905
+--- !u!1001 &5097505451428183171
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,27 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 420240428328945889, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: bulletSpeed
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 420240428328945889, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: bulletDamage
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 420240428328945889, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: isNormalBullet
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 420240428328945889, guid: 252129035ffc2244b923645e41daefc7, type: 3}
-      propertyPath: isShotGunBullet
+      propertyPath: isMainTowerBullet
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,12 +66,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2268930994680793074, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_Name
-      value: ShotGunBullet
+      value: MainBullet
       objectReference: {fileID: 0}
     - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.099012084
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.24575965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3218861615637467708, guid: 252129035ffc2244b923645e41daefc7, type: 3}
     m_RemovedGameObjects: []
@@ -87,20 +91,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2268930994680793074, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2645064150825683881}
+      addedObject: {fileID: 580187843304914422}
   m_SourcePrefab: {fileID: 100100000, guid: 252129035ffc2244b923645e41daefc7, type: 3}
---- !u!1 &3552602256849283403 stripped
+--- !u!1 &6467492891163687793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2268930994680793074, guid: 252129035ffc2244b923645e41daefc7, type: 3}
-  m_PrefabInstance: {fileID: 3328648694304222905}
+  m_PrefabInstance: {fileID: 5097505451428183171}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2645064150825683881
+--- !u!61 &580187843304914422
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3552602256849283403}
+  m_GameObject: {fileID: 6467492891163687793}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

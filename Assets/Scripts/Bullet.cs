@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Transform target;
+    Vector2 tempPos;
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
 
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     [Header("BulletType")]
     [SerializeField] bool isNormalBullet;
     [SerializeField] bool isShotGunBullet;
+    [SerializeField] bool isMainTowerBullet;
     Vector2 direction = Vector2.zero;
     private void Start()
     {
@@ -25,11 +27,15 @@ public class Bullet : MonoBehaviour
         //set target inside Tower Script
         target = givenEnemy;
     }
+
+    public void SetPosition(Vector2 givenVector2)
+    {
+        tempPos = givenVector2;
+    }
     private void FixedUpdate()
     {
-        
         //bullet can follow the target
-        if (!target)
+        if ((!target&&(isNormalBullet||isShotGunBullet))||(tempPos==null))
         {
             return;
         }
@@ -40,6 +46,10 @@ public class Bullet : MonoBehaviour
         if (isShotGunBullet)
         {
             direction = target.position.normalized;
+        }
+        if (isMainTowerBullet)
+        {
+            direction = tempPos.normalized;
         }
         rb.velocity = direction * bulletSpeed;
     }

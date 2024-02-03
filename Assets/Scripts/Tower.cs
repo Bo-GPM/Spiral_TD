@@ -90,14 +90,12 @@ public class Tower : MonoBehaviour
             }
         }
     }
-
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, enemyMask);
         if (hits.Length > 0)
         {
             target = hits[0].transform;
-            //print(target.name);
         }
 
     }
