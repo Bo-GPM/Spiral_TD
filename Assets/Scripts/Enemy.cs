@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private int currentNavIndex;
     private Transform nextNavPointTransform;
     [SerializeField] private float toleranceDistance;
+    private float originalSpeed;
     
     
     
@@ -35,6 +36,17 @@ public class Enemy : MonoBehaviour
         CheckAlive();
     }
 
+    public void ChangeSpeed(float tempSpeed)
+    {
+        originalSpeed = moveSpeed;
+        moveSpeed *= tempSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = originalSpeed;
+    }
+    
     private void FixedUpdate()
     {
         EnemyMove();
