@@ -12,11 +12,16 @@ public class Tower : MonoBehaviour
     [SerializeField] LayerMask enemyMask;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
+    [SerializeField] private GameObject upgradeButton;
 
     [Header("Attribute")]
     [SerializeField] float range = 5f;
     [SerializeField] float shootSpeed = 1f;
     [SerializeField] private int towerWorth;
+    [SerializeField] private int upgradeCost;
+    [SerializeField] private int upgradeIncrement;
+    private int currentUpgradeCost;
+    [SerializeField] private int tier;
 
     [Header("Tower Type")]
     [SerializeField] bool isIceTower;
@@ -30,9 +35,15 @@ public class Tower : MonoBehaviour
     {
         //Add tower to list
         GameManager.instance.activeTowers.Add(this);
+        
+        // Initialize currentUpgradeCost
+        currentUpgradeCost = upgradeCost;
     }
     private void Update()
     {
+        // Check if tower is able to upgrade
+        CheckUpgradeQulification();
+        
         //Switch different tower mode
         if (isNormalTower|| isShotGunTower)
         {
@@ -163,13 +174,34 @@ public class Tower : MonoBehaviour
     }
     public void TowerUpgrade()
     {
-        //TODO:Money condition
+        // Some upgrade cost update
+        GameManager.instance.CostGold(currentUpgradeCost);
+        tier++;
+        currentUpgradeCost += currentUpgradeCost + upgradeCost + upgradeIncrement * tier;
+        
+        // Actual Attributes Boost
         shootSpeed += 1f;
         range += 0.2f;
+        
+        // Disable the upgrade btn
+        upgradeButton.SetActive(false);
     }
 
+    private void CheckUpgradeQulification()
+    {
+        if (GameManager.instance.getGold() > currentUpgradeCost)
+        {
+            upgradeButton.SetActive(true);
+        }
+        else
+        {
+            upgradeButton.SetActive(false);
+        }
+    }
+        
     public int GetTowerWorth()
     {
         return towerWorth;
     }
+    
 }

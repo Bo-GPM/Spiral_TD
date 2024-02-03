@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Exit
   - Tower
+  - UpgradeButton
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Bullet
   - Ground
-  - 
+  - UpgradeButton
   - 
   - 
   - 

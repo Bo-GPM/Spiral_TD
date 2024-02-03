@@ -10,6 +10,7 @@ public class BuildingManager : MonoBehaviour
     [Header("Reference")]
     [SerializeField] GameObject[] towersPrefab;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] private LayerMask upgradeBtnMask;
 
     [Header("Detection")]
 
@@ -77,7 +78,19 @@ public class BuildingManager : MonoBehaviour
         {
             //save the mouse position
             pos = mouseWorldPos;
-        }     
+        }
+        
+        // Check for UpgradeButton is clicked
+        RaycastHit2D hitBtn = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity, upgradeBtnMask);
+        if (hitBtn.collider != null)
+        {
+            // Debug.LogError($"Upgrade BTN Hit!, the name is {hitBtn.collider.transform.parent.gameObject.name}");
+            if (Input.GetMouseButtonDown(0))
+            {
+                // Debug.LogError("Successfully Clicked");
+                hitBtn.collider.transform.parent.gameObject.GetComponent<Tower>().TowerUpgrade();
+            }
+        }
     }
     /// <summary>
     /// call in UI click Instatntiate Tower

@@ -2319,4 +2319,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  upgradeBtnMask:
+    serializedVersion: 2
+    m_Bits: 1024
   canPlace: 1
