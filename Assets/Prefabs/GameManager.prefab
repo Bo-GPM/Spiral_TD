@@ -576,9 +576,16 @@ MonoBehaviour:
   activeTowers: []
   initialGold: 0
   enemySpawningLocation: {fileID: 0}
-  enemyList: []
-  enemySpawnInterval: []
-  prepareTime: 0
+  enemyList:
+  - {fileID: 6063877501162291877, guid: bcbf4e7e60ebc5e48bd43643b0d1cc39, type: 3}
+  - {fileID: 7980844669620281339, guid: 032f827e98861ea4988ad1ecb2c84d62, type: 3}
+  - {fileID: 5094414010596702730, guid: a4cc5018650689840b7e8c261aa52bde, type: 3}
+  enemySpawnInterval:
+  - 1
+  - 2
+  - 4
+  prepareTime: 3
+  navPointsArray: []
   finalTowerHP: 0
   gameOverPanel: {fileID: 8759165655902698925}
   titleScreenPanel: {fileID: 3684063959030796535}
@@ -1540,3 +1547,4 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  canPlace: 1

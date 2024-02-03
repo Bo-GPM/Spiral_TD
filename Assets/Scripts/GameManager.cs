@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private int[] enemiesAwaitsSpawn;
     [SerializeField] private float prepareTime;
     private float remainingPrepareTime;
+    [SerializeField] public GameObject[] navPointsArray;
     
     // [Header("Temp Enemy Spawning")]
     // [SerializeField] private float tempEnemyRefreshInterval;    //In the future, there will be better spawning logics
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject titleScreenPanel;
     [SerializeField] GameObject buildingPanel;
     // Might be useful for reload the scene
+    
+    
     private void Awake()
     {
         instance = this;
@@ -141,12 +144,48 @@ public class GameManager : MonoBehaviour
         enemySpawnIntervalRemain = new float[enemyList.Length];
         enemiesAwaitsSpawn = new int[enemyList.Length];
         
-        // Logic for the first kind of enemy (Very sketchy)
+        // Logic for the 1st kind of enemy 
+        /*
+         * Creeps:
+         * Refresh every wave
+         * move slow
+         * low Hp
+         */
         int enemy1BaseNumber = 3;
         int enemy1WaveFactor = 5;
-        int enemy1toAdd = enemy1BaseNumber + enemy1WaveFactor * currentWaves;
-        enemiesAwaitsSpawn[0] = enemy1toAdd;
+        int enemy1ToAdd = enemy1BaseNumber + enemy1WaveFactor * currentWaves;
+        enemiesAwaitsSpawn[0] = enemy1ToAdd;
         
+        // Logic for the 2nd kinds 
+        /*
+         * Flying Creeps
+         * Only Refresh when waves % 2 == 0
+         * Moves very slow
+         * Low HP
+         */
+        if (currentWaves % 2 == 0)
+        {
+            int enemy2BaseNumber = 6;
+            int enemy2WaveFactor = 2;
+            int enemy2ToAdd = enemy2BaseNumber + enemy2WaveFactor * currentWaves;
+            enemiesAwaitsSpawn[1] = enemy2ToAdd;
+        }
+        
+        // Logic for the 3rd kinds 
+        /*
+         * Boss
+         * Only Refresh when waves  % 3 == 0
+         * moves slow
+         * HP very high
+         */
+        
+        if (currentWaves % 3 == 0)
+        {
+            int enemy3BaseNumber = 4;
+            int enemy3WaveFactor = 2;
+            int enemy3ToAdd = enemy3BaseNumber + enemy3WaveFactor * currentWaves;
+            enemiesAwaitsSpawn[2] = enemy3ToAdd;
+        }
         
         // Update enemySpawnInterval here
         float intervalDecreaseIncrement = 0.1f;
