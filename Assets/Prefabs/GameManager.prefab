@@ -907,6 +907,8 @@ MonoBehaviour:
   - 1
   - 2
   - 4
+  totalTimeToTakeForAllEnemySpawning: 20
+  totalTimeIncrement: 1
   prepareTime: 10
   navPointsArray:
   - {fileID: 0}

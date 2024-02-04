@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Quaternion = System.Numerics.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : MonoBehaviour
@@ -102,6 +104,13 @@ public class Enemy : MonoBehaviour
         // 3. Move to NavPoint
         Vector3 targetVec = -(transform.position - nextNavPointTransform.position).normalized;
         gameObject.transform.position += targetVec * (moveSpeed * Time.fixedDeltaTime);
+        
+        // 4. Change rotation, make it always facing the next checkpoint
+        if (currentNavIndex <= GameManager.instance.navPointsArray.Length - 1)
+        {
+            float angle = Mathf.Atan2(targetVec.y, targetVec.x) * Mathf.Rad2Deg;
+            transform.rotation = UnityEngine.Quaternion.Euler(0, 0, angle);
+        }
     }
     
     private void SetCurrentIndexAsGuidePointTransform()

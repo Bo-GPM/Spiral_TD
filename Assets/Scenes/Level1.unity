@@ -97809,6 +97809,10 @@ PrefabInstance:
       propertyPath: navPointsArray.Array.data[20]
       value: 
       objectReference: {fileID: 1672184706}
+    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
+      propertyPath: enemySpawnInterval.Array.data[2]
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

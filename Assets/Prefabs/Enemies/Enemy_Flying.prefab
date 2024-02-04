@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6717451505600105480, guid: af478c5550b4bd7458df5f89830036bc, type: 3}
+      propertyPath: healthPool
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7479197603718080948, guid: af478c5550b4bd7458df5f89830036bc, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     private float[] enemySpawnIntervalRemain;
     private int totalEnemiesToSpawn;
     private int[] enemiesAwaitsSpawn;
+    [SerializeField] private float totalTimeToTakeForAllEnemySpawning;
+    [SerializeField] private float totalTimeIncrement;
     [SerializeField] private float prepareTime;
     private float remainingPrepareTime;
     [SerializeField] public GameObject[] navPointsArray;
@@ -179,11 +182,12 @@ public class GameManager : MonoBehaviour
         totalEnemiesToSpawn = CountEnemiesInList();
         
         // Update enemySpawnInterval here
-        float intervalDecreaseIncrement = 0.1f;
+        totalTimeToTakeForAllEnemySpawning = totalTimeToTakeForAllEnemySpawning + totalTimeIncrement * currentWaves;
+        
         // Then update enemySpawnIntervalRemain
         for (int i = 0; i < enemyList.Length; i++)
         {
-            enemySpawnInterval[i] -= intervalDecreaseIncrement;  
+            enemySpawnInterval[i] = totalTimeToTakeForAllEnemySpawning / enemiesAwaitsSpawn[i];  
             enemySpawnIntervalRemain[i] = enemySpawnInterval[i];
         }
         
