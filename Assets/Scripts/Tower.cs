@@ -114,7 +114,7 @@ public class Tower : MonoBehaviour
     }
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg+180f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg-90f;
        // float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + 180f;
         Quaternion targetRotation= Quaternion.Euler(new Vector3(0f, 0f, angle));
         towerRotatePoint.rotation = Quaternion.RotateTowards(towerRotatePoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
