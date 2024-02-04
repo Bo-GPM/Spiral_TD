@@ -52,6 +52,8 @@ public class BuildingManager : MonoBehaviour
         //place tower & toggle shooting function
         if(pendingTower!=null) pendingTower.GetComponent<Tower>().canShoot = true;
         pendingTower = null;
+        //audio play
+        AudioManager.audioInstance.PlayAudio(4);
     }
 
     private void UpdateColors()

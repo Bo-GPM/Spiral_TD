@@ -127,6 +127,7 @@ public class Enemy : MonoBehaviour
     {
         // Call this for taking damage
         currentHealthPool -= tempDamageNumber;
+        AudioManager.audioInstance.PlayAudio(0);
     }
 
     public void CheckAlive()

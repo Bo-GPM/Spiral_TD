@@ -33,6 +33,8 @@ public class MainTower : MonoBehaviour
     {
         GameObject bulletobj = Instantiate(bulletPrefab,transform.position,Quaternion.identity);
         Bullet bulletScript = bulletobj.GetComponent<Bullet>();
+        //play audio
+        AudioManager.audioInstance.PlayAudio(1);
         bulletScript.SetPosition(givenVector2);
         //Debug.Log("Shoot");
     }

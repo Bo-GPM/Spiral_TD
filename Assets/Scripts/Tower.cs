@@ -87,6 +87,7 @@ public class Tower : MonoBehaviour
         GameObject bulletobj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bulletobj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+        AudioManager.audioInstance.PlayAudio(2);
         //Debug.Log("Shoot");
     }
     private void ShotGunShoot()
@@ -94,6 +95,8 @@ public class Tower : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, enemyMask);
         if (hits.Length > 0)
         {
+            //play audio
+            AudioManager.audioInstance.PlayAudio(3);
             for (int i = 0; i < hits.Length; i++)
             {
                 target = hits[i].transform;
@@ -186,7 +189,8 @@ public class Tower : MonoBehaviour
         // Actual Attributes Boost
         shootSpeed += 1f;
         range += 0.2f;
-        
+        //play Sound
+        AudioManager.audioInstance.PlayAudio(5);
         // Disable the upgrade btn
         upgradeButton.SetActive(false);
     }
