@@ -32,6 +32,8 @@ public class Tower : MonoBehaviour
     Transform target;
     float timeUntilFire;
     public bool canShoot = false;
+    int[] soundNumber = { 2, 7, 8 };
+    
     private void Start()
     {
         //Add tower to list
@@ -87,7 +89,7 @@ public class Tower : MonoBehaviour
         GameObject bulletobj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bulletobj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
-        AudioManager.audioInstance.PlayAudio(2);
+        AudioManager.audioInstance.PlayAudio(soundNumber[UnityEngine.Random.Range(0, soundNumber.Length)]);
         //Debug.Log("Shoot");
     }
     private void ShotGunShoot()

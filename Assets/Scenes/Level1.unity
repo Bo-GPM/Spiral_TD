@@ -97681,22 +97681,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4344523628782961127, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195986653495150068, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195986653495150068, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195986653495150068, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 5217593586686738055, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -97709,22 +97693,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7973798426977584623, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: orthographic size
-      value: 10.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: initialGold
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: enemySpawningLocation
       value: 
       objectReference: {fileID: 813611575}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: navPointsArray.Array.size
-      value: 21
-      objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: navPointsArray.Array.data[0]
       value: 
@@ -97809,10 +97781,6 @@ PrefabInstance:
       propertyPath: navPointsArray.Array.data[20]
       value: 
       objectReference: {fileID: 1672184706}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: enemySpawnInterval.Array.data[2]
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

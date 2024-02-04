@@ -16,7 +16,7 @@ public class BuildingManager : MonoBehaviour
 
     Vector2 pos;
     GameObject pendingTower;
-    public bool canPlace=true;
+    public bool canPlace=false;
     Transform childTransform;
     private void Awake()
     {
@@ -51,9 +51,10 @@ public class BuildingManager : MonoBehaviour
         if (pendingTower != null) GameManager.instance.CostGold(pendingTower.GetComponent<Tower>().GetTowerWorth());
         //place tower & toggle shooting function
         if(pendingTower!=null) pendingTower.GetComponent<Tower>().canShoot = true;
+        if (pendingTower != null) AudioManager.audioInstance.PlayAudio(4);
         pendingTower = null;
         //audio play
-        AudioManager.audioInstance.PlayAudio(4);
+       
     }
 
     private void UpdateColors()
@@ -104,6 +105,7 @@ public class BuildingManager : MonoBehaviour
         // Check if gold is enough
         if (towersPrefab[index].GetComponent<Tower>().GetTowerWorth() <= GameManager.instance.getGold())
         {
+            AudioManager.audioInstance.PlayAudio(4);
             pendingTower = Instantiate(towersPrefab[index], pos, Quaternion.identity);
             childTransform = pendingTower.transform.Find("Root");
             
