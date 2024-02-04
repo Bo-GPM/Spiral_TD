@@ -645,11 +645,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8740293298744838820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -118}
+  m_SizeDelta: {x: 800, y: 600}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &351006273187202161
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -680,12 +680,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeEnemies: []
   activeTowers: []
-  initialGold: 0
+  initialGold: 100
   enemySpawningLocation: {fileID: 0}
   enemyList:
   - {fileID: 6063877501162291877, guid: bcbf4e7e60ebc5e48bd43643b0d1cc39, type: 3}
@@ -2313,7 +2313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towersPrefab:
-  - {fileID: 2714874200799613105, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+  - {fileID: 8573340155232767531, guid: f525adabadb1358429a788c0b9ab08b3, type: 3}
   - {fileID: 9062040514889004200, guid: dcb9945245c84ce469cc03e718c784a9, type: 3}
   - {fileID: 2564042767791028246, guid: c87c628c124e0914e9a6b1159188fb6a, type: 3}
   groundMask:
