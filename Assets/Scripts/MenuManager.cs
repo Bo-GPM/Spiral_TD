@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour
 
     private void BackgroundScrolling()
     {
-        Debug.LogError(backgroundImage.localPosition);
+        // Debug.LogError(backgroundImage.localPosition);
         if (backgroundImage.localPosition.y > 390.1f)
         {
             backgroundImage.localPosition = new Vector3(0, -432, 0);
