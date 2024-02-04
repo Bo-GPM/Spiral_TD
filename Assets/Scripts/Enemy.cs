@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damageNumber;
     [SerializeField] private int goldWorth;
     private int currentHealthPool;
+    [SerializeField] private int hpIncrementPerWaves;
     [SerializeField] private bool isFlying = false;
     private int currentNavIndex;
     private Transform nextNavPointTransform;
@@ -62,7 +63,10 @@ public class Enemy : MonoBehaviour
 
     private void InitializeEnemy()
     {
-        currentHealthPool = healthPool;
+        // Upgrade HP and moveSpeed as waves goes
+        currentHealthPool = healthPool + hpIncrementPerWaves * GameManager.instance.getWaves();
+        moveSpeed *= 1 + 0.1f * GameManager.instance.getWaves();
+        
         GameManager.instance.activeEnemies.Add(this);
         
         // Check if enemy is flying, if not, set index to 0

@@ -18,10 +18,11 @@ public class GameManager : MonoBehaviour
     private const int BATTLE = 1;
     private const int GAME_OVER = 2;
 
-    [Header("General Varibles")] 
-    [SerializeField] private int initialGold;
+    [Header("General Varibles")] [SerializeField]
+    private int initialGold;
+
     private int gold;
-    private int currentWaves = 1;
+    public int currentWaves = 1;
     
     [Header("Enemy Related")] 
     [SerializeField] private Transform enemySpawningLocation;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float totalTimeToTakeForAllEnemySpawning;
     [SerializeField] private float totalTimeIncrement;
     [SerializeField] private float prepareTime;
+    private float originalTotalTimeToSpawn;
     private float remainingPrepareTime;
     [SerializeField] public GameObject[] navPointsArray;
     
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gold = initialGold;
-        
+        originalTotalTimeToSpawn = totalTimeToTakeForAllEnemySpawning;
         instance = this;
         // Singleton
         // if (instance != null)
@@ -182,7 +184,7 @@ public class GameManager : MonoBehaviour
         totalEnemiesToSpawn = CountEnemiesInList();
         
         // Update enemySpawnInterval here
-        totalTimeToTakeForAllEnemySpawning = totalTimeToTakeForAllEnemySpawning + totalTimeIncrement * currentWaves;
+        totalTimeToTakeForAllEnemySpawning = originalTotalTimeToSpawn + totalTimeIncrement * currentWaves;
         
         // Then update enemySpawnIntervalRemain
         for (int i = 0; i < enemyList.Length; i++)
@@ -330,6 +332,11 @@ public class GameManager : MonoBehaviour
         return gold;
     }
 
+    public int getWaves()
+    {
+        return currentWaves;
+    }
+    
     public void InsufficientGoldWarning()
     {
         StartCoroutine(startWarningCoroutine());

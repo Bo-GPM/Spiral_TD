@@ -50,8 +50,9 @@ MonoBehaviour:
   healthPool: 1
   damageNumber: 1
   goldWorth: 10
+  hpIncrementPerWaves: 1
   isFlying: 0
-  toleranceDistance: 0.3
+  toleranceDistance: 0.1
 --- !u!58 &1693057688951941412
 CircleCollider2D:
   m_ObjectHideFlags: 0
