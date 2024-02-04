@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] bool isShotGunBullet;
     [SerializeField] bool isMainTowerBullet;
     Vector2 direction = Vector2.zero;
+    [SerializeField] private GameObject hitEffect;
     private void Start()
     {
         Destroy(gameObject,destroyTimer);
@@ -56,6 +58,8 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
+        // Particle Effect
+        Instantiate(hitEffect, transform.position, quaternion.identity);
         //TODO:Damage
         Destroy(gameObject);
 

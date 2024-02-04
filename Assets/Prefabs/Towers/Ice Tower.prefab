@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ff7a7b54fba718144a47033f57344e5d, type: 3}
+    - target: {fileID: 4552134968035209809, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552134968035209809, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 960128365
+      objectReference: {fileID: 0}
     - target: {fileID: 4564467996565218515, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: isIceTower
       value: 1
@@ -115,6 +123,14 @@ PrefabInstance:
     - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 960128365
       objectReference: {fileID: 0}
     - target: {fileID: 8063787316694578805, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: m_LocalPosition.y

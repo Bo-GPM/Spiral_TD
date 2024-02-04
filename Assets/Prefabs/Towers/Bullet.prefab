@@ -133,6 +133,7 @@ MonoBehaviour:
   isNormalBullet: 1
   isShotGunBullet: 0
   isMainTowerBullet: 0
+  hitEffect: {fileID: 4536788557575214596, guid: 97d4774f50ede884abcbce9c0f1880f5, type: 3}
 --- !u!58 &3218861615637467708
 CircleCollider2D:
   m_ObjectHideFlags: 0

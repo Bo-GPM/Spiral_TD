@@ -120,6 +120,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2268930994680793074, guid: 252129035ffc2244b923645e41daefc7, type: 3}
   firePoint: {fileID: 6219281653942089413}
   upgradeButton: {fileID: 9108275179878629350}
+  rotationSpeed: -10
   range: 5
   shootSpeed: 3
   towerWorth: 50
@@ -490,7 +491,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.75, b: 0.9085293, a: 1}
+  m_Color: {r: 0.8962264, g: 0.63834995, b: 0.80355203, a: 0.5568628}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

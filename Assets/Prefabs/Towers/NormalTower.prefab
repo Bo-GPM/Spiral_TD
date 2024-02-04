@@ -32,6 +32,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 35ade4e959ca05d40b49fceb6ff81fc3, type: 3}
+    - target: {fileID: 4552134968035209809, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552134968035209809, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 960128365
+      objectReference: {fileID: 0}
     - target: {fileID: 4564467996565218515, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: bulletPrefab
       value: 
@@ -115,6 +123,14 @@ PrefabInstance:
     - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886780827099666126, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 960128365
       objectReference: {fileID: 0}
     - target: {fileID: 9108275179878629350, guid: f37f9c69d5152b94089ef0caed000693, type: 3}
       propertyPath: m_IsActive
