@@ -16,12 +16,14 @@ public class MainTower : MonoBehaviour
     Vector2 Mousepos;
     Vector3 mouseWorldPos;
     float timeUntilFire;
-    // Update is called once per frame
     void Update()
     {
+        //Timer
         timeUntilFire += Time.deltaTime;
+        //get mouse position
         mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RotateTarget();
+        //Press W To shoot
         if (Input.GetKeyDown(KeyCode.W)&&timeUntilFire >= 1f /shootColdDown)
         {
                 Mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,10 +38,10 @@ public class MainTower : MonoBehaviour
         //play audio
         AudioManager.audioInstance.PlayAudio(1);
         bulletScript.SetPosition(givenVector2);
-        //Debug.Log("Shoot");
     }
     void RotateTarget()
     {
+        //get the rotation indicate mouse position
         float angle = Mathf.Atan2(mouseWorldPos.y - transform.position.y, mouseWorldPos.x - transform.position.x) * Mathf.Rad2Deg-90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         towerRotatePoint.rotation = targetRotation;

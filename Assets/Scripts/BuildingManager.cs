@@ -39,7 +39,7 @@ public class BuildingManager : MonoBehaviour
             //change the position by frame
             pendingTower.transform.position = pos;
         }
-        //trigger detection inside Tower script
+        //trigger detection inside Tower script by collision
         if (Input.GetMouseButtonDown(0)&&canPlace)
         {
             PlaceTower();
@@ -56,19 +56,16 @@ public class BuildingManager : MonoBehaviour
         //audio play
        
     }
-
     private void UpdateColors()
     {
 
         if (canPlace && pendingTower != null)
         {
-
             childTransform.GetComponent<SpriteRenderer>().color = Color.white;
         }
         else if (!canPlace && pendingTower != null)
         {
             childTransform.GetComponent<SpriteRenderer>().color = Color.red;
-
         }
 
     }
@@ -82,7 +79,6 @@ public class BuildingManager : MonoBehaviour
             //save the mouse position
             pos = mouseWorldPos;
         }
-        
         // Check for UpgradeButton is clicked
         RaycastHit2D hitBtn = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity, upgradeBtnMask);
         if (hitBtn.collider != null)
@@ -108,7 +104,6 @@ public class BuildingManager : MonoBehaviour
             AudioManager.audioInstance.PlayAudio(4);
             pendingTower = Instantiate(towersPrefab[index], pos, Quaternion.identity);
             childTransform = pendingTower.transform.Find("Root");
-            
         }
         else
         {
