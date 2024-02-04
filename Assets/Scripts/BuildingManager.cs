@@ -98,6 +98,7 @@ public class BuildingManager : MonoBehaviour
     /// <param name="index"></param>
     public void SelectObject(int index)
     {
+        // Debug.Log("Button Pressed");
         // Check if gold is enough
         if (towersPrefab[index].GetComponent<Tower>().GetTowerWorth() <= GameManager.instance.getGold())
         {
