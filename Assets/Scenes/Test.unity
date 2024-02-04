@@ -131,34 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 3601194655145632039, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -118
-      objectReference: {fileID: 0}
     - target: {fileID: 3851738477689580438, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -222,22 +194,6 @@ PrefabInstance:
     - target: {fileID: 5217593586686738055, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7080114670851522353, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7080114670851522353, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: initialGold
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
-      propertyPath: prepareTime
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8536471256722393202, guid: 9c7aedafbb2c86d4584d3f04bad3fc5a, type: 3}
       propertyPath: enemySpawningLocation
@@ -1522,10 +1478,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2996183978749977936, guid: cfc7476eb89f1474c90b9bfdce9d7679, type: 3}
-      propertyPath: shootColdDown
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8516236242710034701, guid: cfc7476eb89f1474c90b9bfdce9d7679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.37

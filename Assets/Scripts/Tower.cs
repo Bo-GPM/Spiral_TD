@@ -15,6 +15,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private GameObject upgradeButton;
 
     [Header("Attribute")]
+    [SerializeField] float rotationSpeed = -10f;
     [SerializeField] float range = 5f;
     [SerializeField] float shootSpeed = 1f;
     [SerializeField] private int towerWorth;
@@ -113,8 +114,11 @@ public class Tower : MonoBehaviour
     }
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
-        towerRotatePoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg+180f;
+       // float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + 180f;
+        Quaternion targetRotation= Quaternion.Euler(new Vector3(0f, 0f, angle));
+        towerRotatePoint.rotation = Quaternion.RotateTowards(towerRotatePoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //towerRotatePoint.rotation = targetRotation;
     }
     private bool CheckTargetIsInRange()
     {

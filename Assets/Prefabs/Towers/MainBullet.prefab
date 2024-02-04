@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 785953888774208018, guid: 252129035ffc2244b923645e41daefc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268930994680793074, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_Name
       value: MainBullet
@@ -83,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4d838a34a035d4942b3deea334ba07d8, type: 3}
+      objectReference: {fileID: 21300000, guid: 28c0296c88ac0114197ffa286aab3d6b, type: 3}
     - target: {fileID: 3988463063551779336, guid: 252129035ffc2244b923645e41daefc7, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -153,5 +157,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.6}
+  m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0

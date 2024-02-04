@@ -9,17 +9,19 @@ public class MainTower : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] LayerMask enemyMask;
     [SerializeField] GameObject bulletPrefab;
-
+    [SerializeField] Transform towerRotatePoint;
     [Header("Attribute")]
     [SerializeField] float shootColdDown = 1f;
     
     Vector2 Mousepos;
+    Vector3 mouseWorldPos;
     float timeUntilFire;
     // Update is called once per frame
     void Update()
     {
         timeUntilFire += Time.deltaTime;
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RotateTarget();
         if (Input.GetKeyDown(KeyCode.W)&&timeUntilFire >= 1f /shootColdDown)
         {
                 Mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,5 +35,11 @@ public class MainTower : MonoBehaviour
         Bullet bulletScript = bulletobj.GetComponent<Bullet>();
         bulletScript.SetPosition(givenVector2);
         //Debug.Log("Shoot");
+    }
+    void RotateTarget()
+    {
+        float angle = Mathf.Atan2(mouseWorldPos.y - transform.position.y, mouseWorldPos.x - transform.position.x) * Mathf.Rad2Deg-90f;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        towerRotatePoint.rotation = targetRotation;
     }
 }
