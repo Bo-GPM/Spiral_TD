@@ -41,6 +41,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1728530741
+    locked: 0
+  - name: Gadgets
+    uniqueID: 639721173
+    locked: 0
+  - name: ActiveComponents
+    uniqueID: 960128365
+    locked: 0
+  - name: UI
+    uniqueID: 2540954517
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
