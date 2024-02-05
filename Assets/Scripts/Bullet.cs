@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     private void Start()
     {
+        //destroy after destroyTimer(incase not touch the enemy)
         Destroy(gameObject,destroyTimer);
     }
     public void SetTarget(Transform givenEnemy)
@@ -29,18 +30,19 @@ public class Bullet : MonoBehaviour
         //set target inside Tower Script
         target = givenEnemy;
     }
-
     public void SetPosition(Vector2 givenVector2)
     {
+        //set position
         tempPos = givenVector2;
     }
     private void FixedUpdate()
     {
-        //bullet can follow the target
+        //incase error
         if ((!target&&(isNormalBullet||isShotGunBullet))||(tempPos==null))
         {
             return;
         }
+        //switch different bullet type
         if (isNormalBullet)
         {
             direction = (target.position - transform.position).normalized;
@@ -57,16 +59,15 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //cause damage
         collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
         // Particle Effect
         Instantiate(hitEffect, transform.position, quaternion.identity);
-        //TODO:Damage
         Destroy(gameObject);
 
     }
     public void BulletUpgrade() 
     {
-        //TODO:MoneyCondition
         bulletDamage += 1;
         bulletSpeed += 1;
     }

@@ -13,12 +13,9 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayAudio(int index)
     {
+        //get index and play audio
       AudioSources[index].Play();
     }
 
-    private void Start()
-    {
-
-    }
 }
 
