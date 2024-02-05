@@ -86,10 +86,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // DebugMethods();
         GameStateChanging();
         
     }
 
+    private void DebugMethods()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            finalTowerHP -= 1;
+        }
+    }
     private bool CheckIntArrayIsAllZero(int[] tempArray)
     {
         for (int i = 0; i < tempArray.Length; i++)
@@ -122,6 +130,7 @@ public class GameManager : MonoBehaviour
         else if (gameState == GAME_OVER)
         {
             gameOverPanel.SetActive(true);
+            buildingPanel.SetActive(false);
         }
     }
     
@@ -221,7 +230,7 @@ public class GameManager : MonoBehaviour
         UpdateUIText();
         
         // Check HP first to see if game is over.
-        if (finalTowerHP < 0)
+        if (finalTowerHP <= 0)
         {
             gameState = GAME_OVER;
         }
@@ -366,5 +375,11 @@ public class GameManager : MonoBehaviour
         buildingPanel.SetActive(currentSceneIndex != 0);
         SceneManager.LoadScene(currentSceneIndex);
 
+    }
+
+    public void ReloadScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }
